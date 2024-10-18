@@ -4,8 +4,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const cors = require('cors');
+
+const mongoose = require('mongoose');
+const path = require('path');
+
 app.use(express.json());
 app.use(express.static('dist'));
+
+require('dotenv').config();
 
 const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
