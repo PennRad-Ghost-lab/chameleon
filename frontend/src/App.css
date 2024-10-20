@@ -22,3 +22,17 @@
   flex-direction: column;
   align-items: center;
 }
+
+.data-container{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.csv-list {
+  display: inline-block; 
+  list-style-type: none;
+}
+
+.download-button {
+  padding-left: 25px;
+}
