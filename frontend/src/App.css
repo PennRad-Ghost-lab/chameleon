@@ -28,11 +28,17 @@
   margin-top: 50px;
 }
 
-.csv-list {
-  display: inline-block; 
-  list-style-type: none;
-}
-
 .download-button {
   padding-left: 25px;
+}
+
+#csv-table{
+  width: 700px;
+}
+
+#data-section{
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Optional: Center the content vertically */
+  margin: 20px; /* Optional: Add some margin */
 }

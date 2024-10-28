@@ -50,7 +50,7 @@ const App = () => {
     <>
       <MyNavbar />
       <MyHeader />
-      <section id="data" className="data-container">
+      <section id="data-section" className="data-container">
         <CSV data={data} handleDownload={handleDownload} />
       </section>
     </>
