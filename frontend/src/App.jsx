@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from './components/myNavbar';
 import MyHeader from './components/myHeader';
+import Footer from './components/Footer';
 import MeetTheTeam from './components/MeetTheTeam';
 import ConsentForm from './components/ConsentForm';
 import csvService from './services/csvService';
@@ -119,6 +120,7 @@ const App = () => {
 
         handleSubmit={handleSubmit}
       />
+      <Footer />
     </>
   );
 }
