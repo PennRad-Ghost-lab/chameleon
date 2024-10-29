@@ -23,12 +23,7 @@
   align-items: center;
 }
 
-.data-container{
-  text-align: center;
-  margin-top: 50px;
-}
-
-.download-button {
+.download-show {
   padding-left: 25px;
 }
 
@@ -41,4 +36,20 @@
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Optional: Center the content vertically */
   margin: 20px; /* Optional: Add some margin */
+  text-align: center;
+  margin-top: 60px;
+}
+
+#meet-team{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Optional: Center the content vertically */
+  margin: 20px; /* Optional: Add some margin */
+  text-align: center;
+  margin-top: 60px;
+}
+
+#team-table{
+  width: 750px;
 }

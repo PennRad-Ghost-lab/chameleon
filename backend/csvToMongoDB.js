@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const csv_parser = require('csv-parser');
 
-function csvToMongoDB(pth, c) {
+async function csvToMongoDB(pth, c) {
   // Get the file size
   filePath = path.join(__dirname, pth);
   const stats = fs.statSync(filePath);
@@ -15,7 +15,7 @@ function csvToMongoDB(pth, c) {
 
   // Create a read stream for the CSV file
   fs.createReadStream(filePath)
-    .pipe(csv_parser({ separator: c}))
+    .pipe(csv_parser({ separator: c }))
     .on('headers', (csvHeaders) => {
       headers = csvHeaders;  // Capture the headers from the CSV
     })
@@ -32,18 +32,26 @@ function csvToMongoDB(pth, c) {
         metadata: {
           totalRows: totalRows - 1,
           fileSize,
-          originalName: "test.csv"
+          fileName: "people.csv"
         }
       }
 
-      console.log(obj);
-      fs.writeFile("test.json", JSON.stringify(obj), function (err) {
-        if (err) {
-          console.log(err);
-        }
+      const response = await fetch('http://localhost:3000/api/data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
       });
+
+      console.log(response);
+      // fs.writeFile("test2.json", JSON.stringify(obj), function (err) {
+      //   if (err) {
+      //     console.log(err);
+      //   }
+      // });
 
     });
 }
 
-csvToMongoDB('/test_data/test.csv', ';');
+csvToMongoDB('/test_data/addresses.csv', ',');

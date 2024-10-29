@@ -6,7 +6,8 @@ const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors());
 
-const CSVFile = require('./models/csvFile');
+const { CSVFile, Person } = require('./models/csvFile');
+
 
 app.use(express.json());
 app.use(express.static('dist'));
@@ -79,6 +80,41 @@ app.post('/api/data', (request, response, next) => {
 
   csvFile.save().then(savedCSV => {
     response.json(savedCSV);
+  }).catch(error => next(error));
+});
+
+app.get('/api/persons', (request, response) => {
+  Person.find({}).then(data => {
+    response.json(data);
+  });
+});
+
+app.get('/api/persons/:id', (request, response, next) => {
+  Person.findById(request.params.id)
+    .then(data => {
+      if (data) {
+        response.json(data);
+      } else {
+        response.status(404).end();
+      }
+    })
+    .catch(error => next(error));
+});
+
+app.post('/api/persons', (request, response, next) => {
+  const body = request.body;
+
+  const person = new Person({
+    firstName: body.firstName,
+    lastName: body.lastName,
+    email: body.email,
+    institution: body.institution
+  });
+
+  console.log(person);
+
+  person.save().then(savedPerson => {
+    response.json(savedPerson);
   }).catch(error => next(error));
 });
 

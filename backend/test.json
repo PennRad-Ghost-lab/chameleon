@@ -1,1 +1,45 @@
-{"headers":["Username","Identifier","First name","Last name"],"data":[["booker12","9012","Rachel","Booker"],["grey07","2070","Laura","Grey"],["johnson81","4081","Craig","Johnson"],["jenkins46","9346","Mary","Jenkins"],["smith79","5079","Jamie","Smith"]],"metadata":{"totalRows":5,"fileSize":175,"originalName":"test.csv"}}
+{
+  "headers": [
+    "Username",
+    "Identifier",
+    "First name",
+    "Last name"
+  ],
+  "data": [
+    [
+      "booker12",
+      "9012",
+      "Rachel",
+      "Booker"
+    ],
+    [
+      "grey07",
+      "2070",
+      "Laura",
+      "Grey"
+    ],
+    [
+      "johnson81",
+      "4081",
+      "Craig",
+      "Johnson"
+    ],
+    [
+      "jenkins46",
+      "9346",
+      "Mary",
+      "Jenkins"
+    ],
+    [
+      "smith79",
+      "5079",
+      "Jamie",
+      "Smith"
+    ]
+  ],
+  "metadata": {
+    "totalRows": 5,
+    "fileSize": 175,
+    "originalName": "test.csv"
+  }
+}
