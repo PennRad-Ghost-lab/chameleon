@@ -55,14 +55,14 @@ const ConsentForm = (props) => {
             />
           </div>
           <p>Please read the terms before downloading:</p>
-          <p>Lorem ipsum odor amet, consectetuer adipiscing elit. Suspendisse dapibus litora rutrum dignissim mauris. Curabitur facilisis scelerisque taciti litora litora nunc nisi. Ut donec sed euismod orci praesent dui porta rhoncus tincidunt. Molestie ultrices finibus viverra morbi natoque sodales neque vitae. Venenatis dui non habitasse augue tortor. Neque aliquam dapibus hendrerit orci habitant tellus non posuere consequat.</p>
+          <p>By signing below, I affirm that the information I have provided is accurate and true to the best of my knowledge. Additionally, I agree to cite the source paper if you I any portion of the data contained herein, ensuring proper attribution to the authors and acknowledging the original source of the information. <br></br><br></br>This agreement signifies your commitment to upholding the ethical and scholarly standards expected in the use and distribution of research data.</p>
           <div>
             <input
               type="checkbox"
               checked={props.consentChecked}
               onChange={() => props.setConsentChecked(!props.consentChecked)}
             />
-            <label className="ms-2">I agree to the terms.</label>
+            <label className="ms-2">I acknowledge and agree to the terms.</label>
           </div>
 
         </Modal.Body>

@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+const JSZip = require('jszip');
+const fs = require('fs');
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 
@@ -32,6 +35,49 @@ app.get('/api/data', (request, response) => {
   console.log("express fetching all data");
   CSVFile.find({}).then(data => {
     response.json(data);
+  });
+});
+
+app.get('/api/data/download-all/', (request, response, next) => {
+  console.log('Downloading all data');
+
+  const readmePath = path.join(__dirname, '..', 'frontend', 'public', 'README.md');
+
+  fs.readFile(readmePath, 'utf8', (err, readmeContent) => {
+    if (err) {
+      console.error('Error reading README:', err);
+      // Continue without README if file can't be read
+    }
+
+    CSVFile.find()  // Removed empty object parameter
+      .lean()       // Added lean() for better performance
+      .exec()       // Added exec() to ensure proper promise handling
+      .then(csvFiles => {
+        if (csvFiles && csvFiles.length > 0) {  // Better check for results
+          const zip = new JSZip();
+
+          if (readmeContent) {
+            zip.file('README.md', readmeContent);
+          }
+
+          csvFiles.forEach(csv => {
+            const csvData = csv.headers.join(',') + '\n' + csv.data.map(row => row.join(',')).join('\n');
+            zip.file(csv.metadata.fileName, csvData);
+          });
+          zip.generateAsync({ type: 'nodebuffer' }).then(content => {
+            response.setHeader('Content-Disposition', 'attachment; filename=all-data.zip');
+            response.setHeader('Content-Type', 'application/zip');
+            response.setHeader('Content-Length', content.length);
+            response.send(content);
+          });
+        } else {
+          response.status(404).json({ error: 'No files found' });
+        }
+      })
+      .catch(error => {
+        console.error('Download failed:', error);
+        next(error);
+      });
   });
 });
 

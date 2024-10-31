@@ -1,21 +1,15 @@
-import Table from 'react-bootstrap/Table';
+import TeamMember from "./TeamMember";
 
 const MeetTheTeam = () => {
   return (
-    <div id="meet-team">
-      <h1>Meet the Team</h1>
-      <Table striped bordered hover size="sm" id='team-table'>
-        <tbody>
-          <tr>
-            <td>Alice</td>
-            <td>Bob</td>
-          </tr>
-          <tr>
-            <td>Charlie</td>
-            <td>David</td>
-          </tr>
-        </tbody>
-      </Table>
+    <div id="meet-team"style={{width:"95%"}}>
+      <h1 >Meet the Team</h1>
+      <div className='team-cards' style={{width:"95%", marginTop:"15px"}}>
+        <TeamMember name="John Doe" institution="University of Pennsylvania" />
+        <TeamMember name="Jane Smith" institution="University of Pennsylvania" />
+        <TeamMember name="Alice Johnson" institution="University of Pennsylvania" />
+        <TeamMember name="Bob Brown" institution="University of Pennsylvania" />
+      </div>
     </div>
   );
 }

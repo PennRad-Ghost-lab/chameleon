@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from './components/myNavbar';
 import MyHeader from './components/myHeader';
 import Footer from './components/Footer';
+import About from './components/About';
 import MeetTheTeam from './components/MeetTheTeam';
 import ConsentForm from './components/ConsentForm';
 import csvService from './services/csvService';
@@ -11,9 +12,9 @@ import CSV from './components/myCsv';
 import { useState, useEffect } from 'react';
 
 const App = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [selectedId, setSelectedId] = useState(null);
+  // const [selectedId, setSelectedId] = useState(null);
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -21,22 +22,22 @@ const App = () => {
   const [email, setEmail] = useState('');
   const [consentChecked, setConsentChecked] = useState(false);
 
-  useEffect(() => {
-    console.log("Fetching data");
-    csvService.getAll().then(fetchedData => {
-      setData(fetchedData);
-      console.log("Data fetched"); // Log fetched data here
-    });
-  }, []);
+  // useEffect(() => {
+  //   console.log("Fetching data");
+  //   csvService.getAll().then(fetchedData => {
+  //     setData(fetchedData);
+  //     console.log("Data fetched"); // Log fetched data here
+  //   });
+  // }, []);
 
   const handleShow = (id) => {
-    setSelectedId(id);
+    // setSelectedId(id);
     setShowModal(true);
   };
 
   const handleClose = () => {
     setShowModal(false);
-    setSelectedId(null);
+    // setSelectedId(null);
     setConsentChecked(false);
   };
 
@@ -48,7 +49,7 @@ const App = () => {
       email
     };
     if (consentChecked) {
-      handleDownload(selectedId);
+      handleDownload();
       personService.create(data).then(response => {
         console.log('Consent submitted');
         handleClose();
@@ -56,14 +57,14 @@ const App = () => {
     }
   };
 
-  const handleDownload = async (id) => {
+  const handleDownload = async () => {
     console.log('Initiating download from App.jsx');
 
     try {
-      const { content, filename } = await csvService.downloadById(id);
+      const { content, filename } = await csvService.downloadAll();
 
       // Create a blob and download link
-      const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+      const blob = new Blob([content], { type: 'application/zip' });
       const link = document.createElement('a');
 
       // Create downloadable link
@@ -98,10 +99,11 @@ const App = () => {
     <>
       <MyNavbar />
       <MyHeader />
-      <section id="data-section">
-        <CSV data={data} handleShow={handleShow} />
-      </section>
+      <About />
       <MeetTheTeam />
+      <section id="data-section">
+        <CSV handleShow={handleShow} />
+      </section>
       <ConsentForm
         showModal={showModal}
         handleClose={handleClose}

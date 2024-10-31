@@ -33,4 +33,24 @@ const downloadById = (id) => {
   });
 };
 
-export default { getAll, getOne, downloadById };
+const downloadAll = () => {
+  console.log('Initiating download from csvService.js', `${baseUrl}/download-all`);
+  return axios.get(`${baseUrl}/download-all`, {
+    responseType: 'blob',
+    timeout: 30000
+  }).then(response => {
+    const contentDisposition = response.headers['content-disposition'];
+    const filename = contentDisposition
+      ? contentDisposition.split('filename=')[1].replace(/['"]/g, '')
+      : 'all-data.zip';
+
+    console.log("Got the ZIP File");
+
+    return {
+      content: response.data,
+      filename: filename
+    };
+  });
+}
+
+export default { getAll, getOne, downloadById, downloadAll };

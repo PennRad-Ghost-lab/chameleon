@@ -1,18 +1,13 @@
 //bootstrap button
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
+import Card from 'react-bootstrap/Card';
 
-const CSV = ({ data, handleShow }) => {
+const CSV = ({ handleShow }) => {
   return (
-    <Table striped bordered hover size="sm" id='csv-table'>
-      <tbody>
-      {data.map(csv =>
-        <tr key={csv.id}>
-          <td><a>Read the Paper</a></td>
-          <td><Button className="show-button" variant="primary" onClick={() => handleShow(csv.id)}>Download</Button></td>
-        </tr>)}
-      </tbody>
-    </Table>
+    <div id='csv-table'>
+      <h1>Download the Data</h1>
+      <Button className="show-button" variant="dark" onClick={() => handleShow()} style={{marginLeft:"55px"}}>Download</Button>
+    </div>
   )
 }
 
