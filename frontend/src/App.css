@@ -1,27 +1,14 @@
-.ch-header {
+#header {
   background-image: url('/background.png');
-  /* Make sure your path is correct */
   background-size: cover;
-  /* Make sure the background fills the section */
   background-position: center;
-  /* Center the background image */
   background-repeat: no-repeat;
-  /* Prevent the background from repeating */
-  /* 100% of the viewport width */
   height: 500px;
-  /* 100% of the viewport height */
   display: flex;
-  /* Flexbox for centering content */
   justify-content: center;
-  /* Horizontally center content */
   align-items: center;
-  /* Vertically center content */
   margin: 0;
-  /* Remove any default margin */
-  padding-top: 60px;
-  /* Remove padding */
   overflow: hidden;
-  /* Ensure no overflow occurs */
 }
 
 .ch-header-content h1 {
@@ -49,7 +36,7 @@
   /* Center the content horizontally */
   
   /* Optional: Add some margin */
-  margin-top: 60px;
+  padding-top: 60px;
 }
 
 .about-section div{
@@ -77,6 +64,10 @@
   margin-top: 15px;
   margin-left:70px;
   list-style: none;
+}
+
+#team{
+  padding-top: 50px;
 }
 
 #meet-team {

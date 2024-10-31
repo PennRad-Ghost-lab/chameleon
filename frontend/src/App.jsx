@@ -5,6 +5,7 @@ import MyHeader from './components/myHeader';
 import Footer from './components/Footer';
 import About from './components/About';
 import MeetTheTeam from './components/MeetTheTeam';
+import Contact from './components/Contact';
 import ConsentForm from './components/ConsentForm';
 import csvService from './services/csvService';
 import personService from './services/personService';
@@ -98,12 +99,26 @@ const App = () => {
   return (
     <>
       <MyNavbar />
-      <MyHeader />
-      <About />
-      <MeetTheTeam />
+      <section id="header">
+        <MyHeader />
+      </section>
+
+      <section id="about" >
+        <About />
+      </section>
+
+      <section id="team">
+        <MeetTheTeam />
+      </section>
+
       <section id="data-section">
         <CSV handleShow={handleShow} />
       </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+
       <ConsentForm
         showModal={showModal}
         handleClose={handleClose}
