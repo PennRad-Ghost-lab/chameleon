@@ -17,11 +17,7 @@ const Footer = () => {
           src={penn}
           alt="Penn"
           className="h-16 w-auto object-contain"
-        />
-        <img
-          src={penn_medicine}
-          alt="Penn Medicine"
-          className="h-16 w-auto object-contain"
+          style={{height:"150px"}}
         />
         <img
           src={harvard_medicine}
@@ -32,12 +28,13 @@ const Footer = () => {
           src={mass_general}
           alt="Mass General"
           className="h-16 w-auto object-contain"
-          style={{height:"75px"}}
+          style={{height:"60px"}}
         />
         <img
           src={martinos}
           alt="Martinos"
           className="h-16 w-auto object-contain"
+          style={{height:"150px"}}
         />
       </div>
     </Navbar>

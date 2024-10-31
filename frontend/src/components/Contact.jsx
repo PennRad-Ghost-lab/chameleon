@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   return (
     <Container className="d-flex my-5">
-      <Card style={{ width: '30rem', padding: '20px' }}>
+      <Card style={{ width: '30rem'}}>
         <Card.Body>
           <Card.Title>Contact Us</Card.Title>
           <Form ref={form} onSubmit={sendEmail}>

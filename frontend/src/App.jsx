@@ -107,12 +107,12 @@ const App = () => {
         <About />
       </section>
 
-      <section id="team">
-        <MeetTheTeam />
+      <section id="download">
+        <CSV handleShow={handleShow} />
       </section>
 
-      <section id="data-section">
-        <CSV handleShow={handleShow} />
+      <section id="team">
+        <MeetTheTeam />
       </section>
 
       <section id="contact">
