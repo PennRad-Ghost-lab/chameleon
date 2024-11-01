@@ -54,8 +54,17 @@ const ConsentForm = (props) => {
               onChange={(e) => props.setEmail(e.target.value)}
             />
           </div>
-          <p>Please read the terms before downloading:</p>
-          <p>By signing below, I affirm that the information I have provided is accurate and true to the best of my knowledge. Additionally, I agree to cite the source paper if you I any portion of the data contained herein, ensuring proper attribution to the authors and acknowledging the original source of the information. <br></br><br></br>This agreement signifies your commitment to upholding the ethical and scholarly standards expected in the use and distribution of research data.</p>
+          <strong>Please read the terms before downloading:</strong>
+          <p>By submitting my information and agreeing below, I confirm that:</p>
+          <ol>
+            <li>The information I have provided is accurate and true to the best of my knowledge.</li>
+            <li><strong>Citation Requirement:</strong> I agree to cite the source paper in any publication, presentation, or other public disclosure that includes or references this dataset. This ensures proper attribution to the authors and acknowledges the original source of the data.</li>
+            <li><strong>Permitted Use:</strong> I understand that this dataset is provided solely for <strong>research, educational, and non-commercial purposes.</strong> I agree not to use the dataset for any commercial purposes without prior written consent from the dataset providers.</li>
+            <li><strong>Data Privacy and Security:</strong> I commit to handling the dataset responsibly, ensuring it is protected from unauthorized access, sharing, or redistribution.</li>
+            <li><strong>No Redistribution:</strong> I agree not to share, distribute, or sublicense the dataset to third parties without explicit permission from the providers.</li>
+            <li><strong>Assumption of Responsibility:</strong> I understand that improper use of the dataset may result in legal consequences or termination of access rights. I accept full responsibility for any consequences arising from my use of this dataset.</li>
+            <li><strong>Agreement to Terms:</strong> This agreement signifies my commitment to uphold the ethical and scholarly standards expected in the use and distribution of research data.</li>
+          </ol>
           <div>
             <input
               type="checkbox"

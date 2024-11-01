@@ -34,7 +34,7 @@ const Footer = () => {
           src={martinos}
           alt="Martinos"
           className="h-16 w-auto object-contain"
-          style={{height:"150px"}}
+          style={{height:"180px"}}
         />
       </div>
     </Navbar>

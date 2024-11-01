@@ -102,4 +102,16 @@
 
 #contact {
   padding-top: 50px;
+  /* width: 90%; */
+}
+
+#personal-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#personal-info input{
+  width: 250px;
 }
