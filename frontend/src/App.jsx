@@ -9,7 +9,6 @@ import Contact from './components/Contact';
 import ConsentForm from './components/ConsentForm';
 import csvService from './services/csvService';
 import personService from './services/personService';
-import CSV from './components/myCsv';
 import { useState, useEffect } from 'react';
 
 const App = () => {
@@ -104,11 +103,7 @@ const App = () => {
       </section>
 
       <section id="about" >
-        <About />
-      </section>
-
-      <section id="download">
-        <CSV handleShow={handleShow} />
+        <About handleShow={handleShow} />
       </section>
 
       <section id="team">

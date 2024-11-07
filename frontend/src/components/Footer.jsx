@@ -1,6 +1,6 @@
 import Navbar from 'react-bootstrap/Navbar';
 import penn from '/penn.png';
-import penn_medicine from '/penn-medicine.png';
+import perelman from '/perelman.png';
 import harvard_medicine from '/harvard-medicine.png';
 import mass_general from '/mass-general.png';
 import martinos from '/martinos.png';
@@ -14,27 +14,16 @@ const Footer = () => {
     >
       <div className="flex flex-wrap items-center justify-center gap-8 w-full" style={{justifyContent:"center"}}>
         <img
-          src={penn}
+          src={perelman}
           alt="Penn"
           className="h-16 w-auto object-contain"
-          style={{height:"150px"}}
-        />
-        <img
-          src={harvard_medicine}
-          alt="Harvard Medicine"
-          className="h-16 w-auto object-contain"
+          style={{height:"70px"}}
         />
         <img
           src={mass_general}
           alt="Mass General"
           className="h-16 w-auto object-contain"
-          style={{height:"60px"}}
-        />
-        <img
-          src={martinos}
-          alt="Martinos"
-          className="h-16 w-auto object-contain"
-          style={{height:"180px"}}
+          style={{height:"65px"}}
         />
       </div>
     </Navbar>

@@ -1,5 +1,5 @@
 #root {
-  font-family: Fira Sans, Helvetica; 
+  font-family: Fira Sans, Helvetica;
 }
 
 #header {
@@ -7,7 +7,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 650px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,25 +15,12 @@
   overflow: hidden;
 }
 
-.ch-header-content h1 {
-  font-size: 10rem;
-  /* Very large font size */
-  color: white;
-  /* Adjust to ensure visibility against the background */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  /* Text shadow for readability */
-  margin: 0;
-  /* Remove default margins */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .read-paper-card {
   width: 500px;
   min-width: 500px;
 }
 
-#navbar a{
+#navbar a {
   cursor: pointer;
 }
 
@@ -41,31 +28,28 @@
   display: flex;
   justify-content: flex-start;
   /* Center the content horizontally */
-  
+
   /* Optional: Add some margin */
   padding-top: 60px;
 }
 
-.about-section div{
+.about-section div {
   width: 45%;
-  margin-left: 55px;
 }
 
-.download-show {
-  padding-left: 25px;
+.about {
+  padding-left: 55px;
+}
+
+.paper-link {
+  padding-left: 55px;
 }
 
 #csv-table {
   width: 700px;
   /* font-family: Fira Sans, sans-serif; */
   text-align: left;
-  margin-bottom: 25px;
-  margin-top: 40px;
-}
-
-#download {
-  padding-top: 30px;
-  margin-left: 55px;
+  margin-top: 20px;
 }
 
 #data-section li {
@@ -74,21 +58,22 @@
   list-style: none;
 }
 
-#team{
+#team {
   padding-top: 50px;
 }
 
 #meet-team {
   width: 100%;
   margin-left: 55px;
-  
+
 }
 
-.team-cards{
+.team-cards {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  column-gap: 60px;
+  row-gap: 20px;
+  justify-content: center;
 }
 
 #team-table {
@@ -105,13 +90,13 @@
   /* width: 90%; */
 }
 
-#personal-info{
+#personal-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-#personal-info input{
+#personal-info input {
   width: 250px;
 }
