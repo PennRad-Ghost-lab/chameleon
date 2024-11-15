@@ -9,7 +9,10 @@ import Contact from './components/Contact';
 import ConsentForm from './components/ConsentForm';
 import csvService from './services/csvService';
 import personService from './services/personService';
+import CodeForm from './components/CodeForm';
 import { useState, useEffect } from 'react';
+import { set } from 'mongoose';
+import emailjs from '@emailjs/browser';
 
 const App = () => {
   // const [data, setData] = useState([]);
@@ -21,40 +24,93 @@ const App = () => {
   const [institution, setInstitution] = useState('');
   const [email, setEmail] = useState('');
   const [consentChecked, setConsentChecked] = useState(false);
-
-  // useEffect(() => {
-  //   console.log("Fetching data");
-  //   csvService.getAll().then(fetchedData => {
-  //     setData(fetchedData);
-  //     console.log("Data fetched"); // Log fetched data here
-  //   });
-  // }, []);
+  const [showCode, setShowCode] = useState(false);
+  const [code, setCode] = useState('');
+  const [validationCode, setValidationCode] = useState('');
 
   const handleShow = (id) => {
-    // setSelectedId(id);
     setShowModal(true);
   };
 
-  const handleClose = () => {
-    setShowModal(false);
-    // setSelectedId(null);
+  const handleCodeClose = () => {
     setConsentChecked(false);
+    setShowCode(false);
+    setCode('');
+    setValidationCode(generateCode());
   };
 
-  const handleConsentSubmit = () => {
+  const generateCode = () => {
+    const code = Math.floor(100000 + Math.random() * 900000);
+    console.log('Generated code:', code);
+    return code;
+  };
+
+  const handleCodeSubmit = (e) => {
+    e.preventDefault(); // Prevent page refresh
+
     const data = {
       firstName,
       lastName,
       institution,
       email
     };
-    if (consentChecked) {
+
+    if (consentChecked && code == validationCode) {
       handleDownload();
       personService.create(data).then(response => {
         console.log('Consent submitted');
-        handleClose();
+        setConsentChecked(false);
+        setCode('');
+        setShowCode(false);
+        setValidationCode('');
       });
+    } else {
+      alert('Invalid code. Please try again.');
     }
+  }
+
+  const handleClose = () => {
+    setShowModal(false);
+    setConsentChecked(false);
+  };
+
+  const sendVerificationEmail = (code) => {
+    const templateParams = {
+        to_email: email,
+        verification_code: code,
+    };
+
+    console.log('Sending verification email:', templateParams);
+
+    emailjs.send('service_ieesieu', 'template_1hgyx3i', templateParams, {publicKey: 'TvffD1g5go9bZ-GGD'})
+        .then((response) => {
+            console.log("Verification email sent successfully:", response);
+            console.log('Verification code sent');
+        })
+        .catch((error) => {
+            console.error("Error sending verification email:", error);
+        });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page refresh
+    console.log('Form submitted', consentChecked);
+
+    if (consentChecked) {
+        const code = generateCode(); // Generate the code
+        setValidationCode(code); // Set the state (if you need it elsewhere)
+        console.log('Validation code:', code); // Log the generated code directly
+
+        sendVerificationEmail(code); // Pass the code directly to the email function
+        handleConsentSubmit();
+    } else {
+        alert('Please agree to the terms before submitting.');
+    }
+};
+
+  const handleConsentSubmit = () => {
+    setShowModal(false);
+    setShowCode(true);
   };
 
   const handleDownload = async () => {
@@ -82,18 +138,6 @@ const App = () => {
       alert('Failed to download file. Please try again.');
     }
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
-    // if (!firstName || !lastName || !institution || !email) {
-    //   alert('All fields are required.');
-    //   return;
-    // }
-
-    // Call the handle consent submit function with form data
-    handleConsentSubmit();
-  };
-
 
   return (
     <>
@@ -132,6 +176,15 @@ const App = () => {
 
         handleSubmit={handleSubmit}
       />
+
+      <CodeForm
+        showCode={showCode}
+        handleCodeClose={handleCodeClose}
+        handleCodeSubmit={handleCodeSubmit}
+        code={code}
+        setCode={setCode}
+      />
+
       <Footer />
     </>
   );

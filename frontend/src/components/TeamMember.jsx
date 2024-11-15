@@ -1,10 +1,9 @@
 import Card from 'react-bootstrap/Card';
-import logo from '/logo.png';
 
-const TeamMember = ({ name, institution }) => {
+const TeamMember = ({ name, institution, picture}) => {
   return (
-    <Card>
-      <img src={logo} alt="logo" style={{ width: "200px", margin:"auto"}} />
+    <Card className="member">
+      <img src={picture} alt="logo" style={{ height: "200px", margin:"auto", marginTop:"10px"}} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{institution}</Card.Text>

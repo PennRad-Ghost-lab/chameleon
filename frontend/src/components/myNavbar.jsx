@@ -11,7 +11,7 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="download" smooth={true} duration={300}>Download</Nav.Link>
+            <Nav.Link as={Link} to="download-loc" smooth={true} duration={300}>Download</Nav.Link>
             <Nav.Link as={Link} to="about" smooth={true} duration={300}>About</Nav.Link>
             <Nav.Link as={Link} to="about" smooth={true} duration={300}>Paper</Nav.Link>
             <Nav.Link as={Link} to="team" smooth={true} duration={300}>Team</Nav.Link>

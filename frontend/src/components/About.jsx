@@ -11,8 +11,8 @@ const About = (props) => {
       </div>
       <div className="paper-link">
         <h1>Read the Paper</h1>
-        <a>Link</a>
-        <section id="download">
+        <a className='download-loc'>Link</a>
+        <section className='download-section'>
           <CSV handleShow={props.handleShow} />
         </section>
       </div>
