@@ -42,7 +42,7 @@
 }
 
 .paper-link {
-  padding-left: 55px;
+  padding-left: 155px;
 }
 
 #csv-table {
@@ -65,7 +65,20 @@
 #meet-team {
   width: 100%;
   margin-left: 55px;
+}
 
+.member {
+  text-align: center;
+  display: grid;
+  place-items: center; /* Centers the image */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.member img {
+  height: 200px;
+  margin-top: 10px;
+  max-width: 100%;
 }
 
 .all-cards{
@@ -87,8 +100,17 @@
   width: 750px;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: rgb(247, 247, 247)
+}
+
 .footer img {
-  height: 100px;
+  margin-right: 30px;
   margin-left: 30px;
 }
 
