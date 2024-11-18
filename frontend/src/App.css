@@ -1,6 +1,15 @@
+html,
+body {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 #root {
   font-family: Fira Sans, Helvetica;
 }
+
 
 #header {
   background-image: url('/background.png');
@@ -20,8 +29,18 @@
   min-width: 500px;
 }
 
+#navbar {
+  background-color: rgba(255, 255, 255, 0);
+  /* Fully transparent */
+  transition: background-color 0.3s ease;
+  /* Smooth transition */
+  max-width: 100%;
+}
+
 #navbar a {
   cursor: pointer;
+  color: white;
+  font-size: 36px;
 }
 
 .about-section {
@@ -70,7 +89,8 @@
 .member {
   text-align: center;
   display: grid;
-  place-items: center; /* Centers the image */
+  place-items: center;
+  /* Centers the image */
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -81,7 +101,7 @@
   max-width: 100%;
 }
 
-.all-cards{
+.all-cards {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
