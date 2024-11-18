@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint \"src/**/*.{js,mjs,cjs,jsx}\"",
+    "preview": "vite preview",
+    "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,jsx}\" --fix"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@eslint/plugin-kit": "^0.2.3",
     "axios": "^1.7.7",
     "emailjs-com": "^3.2.0",
     "jszip": "^3.10.1",
@@ -23,11 +25,12 @@
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
-    "eslint": "^9.11.1",
-    "eslint-plugin-react": "^7.37.0",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint": "^8.57.1",
+    "eslint-kit": "^0.0.1",
     "eslint-plugin-react-refresh": "^0.4.12",
+    "gh-pages": "^6.2.0",
     "globals": "^15.9.0",
+    "prettier": "^3.3.3",
     "vite": "^5.4.8"
   }
 }

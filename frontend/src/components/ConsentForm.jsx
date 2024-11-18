@@ -69,7 +69,9 @@ const ConsentForm = (props) => {
             <input
               type="checkbox"
               checked={props.consentChecked}
-              onChange={() => props.setConsentChecked(!props.consentChecked)}
+              onChange={() => {
+                props.setConsentChecked(!props.consentChecked)
+              }}
             />
             <label className="ms-2">I acknowledge and agree to the terms.</label>
           </div>
@@ -79,7 +81,7 @@ const ConsentForm = (props) => {
           <Button variant="secondary" onClick={props.handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" type="submit" onClick={props.handleConsentSubmit}>
+          <Button variant="primary" type="submit">
             Confirm Download
           </Button>
         </Modal.Footer>

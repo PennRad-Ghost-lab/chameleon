@@ -1,5 +1,6 @@
+import CSV from './myCsv';
 
-const About = () => {
+const About = (props) => {
   return (
     <div className='about-section'>
       <div className="about">
@@ -10,7 +11,10 @@ const About = () => {
       </div>
       <div className="paper-link">
         <h1>Read the Paper</h1>
-        <a>Link</a>
+        <a className='download-loc'>Link</a>
+        <section className='download-section'>
+          <CSV handleShow={props.handleShow} />
+        </section>
       </div>
     </div>
   );
