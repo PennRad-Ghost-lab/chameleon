@@ -13,6 +13,7 @@ import CodeForm from './components/CodeForm';
 import { useState, useEffect } from 'react';
 import { set } from 'mongoose';
 import emailjs from '@emailjs/browser';
+import WaitlistSignup from "./components/WaitListSignup.jsx";
 
 const App = () => {
   // const [data, setData] = useState([]);
@@ -145,6 +146,10 @@ const App = () => {
       <section id="header">
         <MyHeader />
       </section>
+
+        {/*<section id="about">*/}
+        {/*    <WaitlistSignup />*/}
+        {/*</section>*/}
 
       <section id="about" >
         <About handleShow={handleShow} />

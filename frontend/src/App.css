@@ -64,6 +64,11 @@ body {
   padding-left: 155px;
 }
 
+.waitlist {
+  padding-left: 155px;
+}
+
+
 #csv-table {
   width: 700px;
   /* font-family: Fira Sans, sans-serif; */
@@ -122,11 +127,12 @@ body {
 
 .footer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
-  padding-top: 25px;
-  padding-bottom: 25px;
-  background-color: rgb(247, 247, 247)
+  padding-top: 75px;
+  padding-bottom: 75px;
+  background-color: rgb(247, 247, 247);
+  gap: 20px;
 }
 
 .footer img {
