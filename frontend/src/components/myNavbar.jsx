@@ -6,7 +6,7 @@ const MyNavbar = () => {
     <Navbar fixed="top" expand="lg" id="navbar">
       <Container className="mx-4">
         <Navbar.Brand >
-          <Nav.Link as={Link} to="header" smooth={true} duration={300}>Chameleon Dataset</Nav.Link>
+          <Nav.Link id='title' as={Link} to="header" smooth={true} duration={300}>Chameleon Dataset</Nav.Link>
         </Navbar.Brand>
       </Container>
     </Navbar>

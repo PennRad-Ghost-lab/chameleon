@@ -41,7 +41,7 @@ const App = () => {
 
   const generateCode = () => {
     const code = Math.floor(100000 + Math.random() * 900000);
-    console.log('Generated code:', code);
+    // console.log('Generated code:', code);
     return code;
   };
 
@@ -80,7 +80,7 @@ const App = () => {
         verification_code: code,
     };
 
-    console.log('Sending verification email:', templateParams);
+    // console.log('Sending verification email:', templateParams);
 
     emailjs.send('service_ieesieu', 'template_1hgyx3i', templateParams, {publicKey: 'TvffD1g5go9bZ-GGD'})
         .then((response) => {
@@ -94,12 +94,12 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page refresh
-    console.log('Form submitted', consentChecked);
+    // console.log('Form submitted', consentChecke);
 
     if (consentChecked) {
         const code = generateCode(); // Generate the code
         setValidationCode(code); // Set the state (if you need it elsewhere)
-        console.log('Validation code:', code); // Log the generated code directly
+        // console.log('Validation code:', code); // Log the generated code directly
 
         sendVerificationEmail(code); // Pass the code directly to the email function
         handleConsentSubmit();
@@ -114,7 +114,7 @@ const App = () => {
   };
 
   const handleDownload = async () => {
-    console.log('Initiating download from App.jsx');
+    console.log('Initiating download...');
 
     try {
       const { content, filename } = await csvService.downloadAll();
