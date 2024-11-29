@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 
 const WaitlistSignup = () => {
-    const [name, setName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [institution, setInstitution] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
@@ -12,19 +13,25 @@ const WaitlistSignup = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch("/api/waitlist", {
+            const response = await fetch("http://localhost:3000/api/google-sheets", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name, email }),
+                body: JSON.stringify({
+                    firstName,
+                    lastName,
+                    email,
+                    institution }),
             });
 
             if (response.ok) {
                 setResponseMessage("Thank you for signing up!");
                 setVariant("success");
-                setName("");
+                setFirstName("");
+                setLastName("");
                 setEmail("");
+                setInstitution("");
             } else {
                 setResponseMessage("Something went wrong. Please try again.");
                 setVariant("danger");
@@ -49,13 +56,24 @@ const WaitlistSignup = () => {
                 </Alert>
             )}
             <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3 w-100" controlId="formName">
-                    <Form.Label>Name</Form.Label>
+                <Form.Group className="mb-3 w-100" controlId="formFirstName">
+                    <Form.Label>First Name</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Enter your name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter your first name"
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                        required
+                    />
+                </Form.Group>
+
+                <Form.Group className="mb-3 w-100" controlId="formLastName">
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Enter your last name"
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
                         required
                     />
                 </Form.Group>

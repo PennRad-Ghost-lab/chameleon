@@ -11,11 +11,11 @@ frontend/node_modules
 frontend/dist
 dist-ssr
 *.local
-
 backend/node_modules
 
 
 backend/.env
+backend/secrets.json
 
 # Editor directories and files
 .vscode/*
