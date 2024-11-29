@@ -13,7 +13,7 @@ const WaitlistSignup = () => {
         event.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/api/google-sheets", {
+            const response = await fetch("https://backend-damp-mountain-3912.fly.dev/api/google-sheets", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
