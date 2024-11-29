@@ -1,15 +1,12 @@
-# fly.toml app configuration file generated for chameleon-dataset on 2024-11-17T23:37:29-05:00
+# fly.toml app configuration file generated for backend-damp-mountain-3912 on 2024-11-29T12:59:17-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'chameleon-dataset'
-primary_region = 'iad'
+app = 'backend-damp-mountain-3912'
+primary_region = 'ewr'
 
 [build]
-
-[env]
-  PORT = "3000"
 
 [http_service]
   internal_port = 3000
@@ -20,4 +17,6 @@ primary_region = 'iad'
   processes = ['app']
 
 [[vm]]
-  size = 'shared-cpu-1x'
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1

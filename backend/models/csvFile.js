@@ -1,20 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.set('strictQuery', false);
 
-require('dotenv').config();
-
-const url = process.env.MONGODB_URI;
-
-mongoose.connect(url)
-    .then(() => {
-        console.log('connected to MongoDB');
-    })
-    .catch(error => {
-        console.log('error connecting to MongoDB:', error.message);
-        console.log("URL: ", url);
-    });
-
-// Main schema for the CSV file
 const csvFileSchema = new mongoose.Schema({
     metadata: {
         totalRows: Number,
@@ -22,11 +7,11 @@ const csvFileSchema = new mongoose.Schema({
         fileName: String,
         mimeType: {
             type: String,
-            default: 'text/csv'
-        }
+            default: 'text/csv',
+        },
     },
     headers: [String],
-    data: [[String]]
+    data: [[String]],
 }, { collection: 'csvfiles' });
 
 csvFileSchema.set('toJSON', {
@@ -34,25 +19,7 @@ csvFileSchema.set('toJSON', {
         returnedObject.id = returnedObject._id.toString();
         delete returnedObject._id;
         delete returnedObject.__v;
-    }
+    },
 });
 
-const personSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    institution: String,
-}, { collection: 'people' });
-
-personSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id.toString();
-        delete returnedObject._id;
-        delete returnedObject.__v;
-    }
-});
-
-module.exports = {
-    CSVFile: mongoose.model('CSVFile', csvFileSchema),
-    Person: mongoose.model('Person', personSchema)
-} 
+module.exports = mongoose.model('CSVFile', csvFileSchema);
