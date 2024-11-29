@@ -1,4 +1,5 @@
 {
+  "homepage": "http://PennRad-Ghost-lab.github.io/chameleon",
   "name": "chameleon",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +9,9 @@
     "build": "vite build",
     "lint": "eslint \"src/**/*.{js,mjs,cjs,jsx}\"",
     "preview": "vite preview",
-    "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,jsx}\" --fix"
+    "lint:fix": "eslint \"src/**/*.{js,mjs,cjs,jsx}\" --fix",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
