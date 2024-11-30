@@ -46,18 +46,22 @@ body {
 .about-section {
   display: flex;
   justify-content: flex-start;
-  /* Center the content horizontally */
-
-  /* Optional: Add some margin */
+  justify-content: space-between;
   padding-top: 60px;
+  flex-wrap: wrap;
+  
 }
 
 .about-section div {
   width: 45%;
+  display: flex;
 }
 
 .about {
   padding-left: 55px;
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
 }
 
 .paper-link {
@@ -65,9 +69,18 @@ body {
 }
 
 .waitlist {
-  padding-left: 155px;
+  padding-left: 55px;
+  display: flex;
+  flex-direction: column;
+  min-width: 350px;
+  padding-right: 55px;
 }
 
+.waitlist-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 #csv-table {
   width: 700px;
@@ -88,7 +101,7 @@ body {
 
 #meet-team {
   width: 100%;
-  margin-left: 55px;
+  /* margin-left: 55px; */
 }
 
 .member {
@@ -133,6 +146,8 @@ body {
   padding-bottom: 75px;
   background-color: rgb(247, 247, 247);
   gap: 20px;
+  flex-wrap: wrap;
+  row-gap: 50px;
 }
 
 .footer img {

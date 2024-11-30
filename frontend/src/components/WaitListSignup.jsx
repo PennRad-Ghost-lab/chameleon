@@ -55,7 +55,7 @@ const WaitlistSignup = () => {
                     {responseMessage}
                 </Alert>
             )}
-            <Form onSubmit={handleSubmit}>
+            <Form className="waitlist-form" onSubmit={handleSubmit}>
                 <Form.Group className="mb-3 w-100" controlId="formFirstName">
                     <Form.Label>First Name</Form.Label>
                     <Form.Control

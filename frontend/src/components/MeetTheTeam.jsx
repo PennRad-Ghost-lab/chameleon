@@ -9,9 +9,9 @@ import darco from "/darco.jpg";
 
 const MeetTheTeam = () => {
   return (
-    <div id="meet-team" style={{ width: "95%" }}>
-      <h1>Meet the Team</h1>
-      <div style={{ width: "95%", marginTop: "15px" }}>
+    <div id="meet-team" >
+      <h1 style={{marginLeft:"55px"}}>Meet the Team</h1>
+      <div style={{ marginTop: "15px" }}>
         <div className="all-cards">
           <div className="team-cards">
             <TeamMember picture={satvik} name="Satvik Tripathi" institution="University of Pennsylvania" />
