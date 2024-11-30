@@ -9,7 +9,12 @@ const About = (props) => {
       <div className="about">
         <h1>About</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            The Chameleon project uses advanced large language models (LLMs), such as GPT-4, to generate synthetic
+            radiology reports that replicate the linguistic and clinical complexity of real-world radiology
+            documentation. These reports, covering multiple organ systems and imaging modalities, are rigorously
+            validated by clinical experts to ensure accuracy and utility. Designed for academic and clinical research,
+            Chameleon dataset aims to support the development and evaluation of natural language processing tools and AI models,
+            providing a robust and ethical platform for innovation in radiology informatics.
         </p>
       </div>
         {dataAvailable ?

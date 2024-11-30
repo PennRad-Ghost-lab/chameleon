@@ -15,8 +15,8 @@ const MeetTheTeam = () => {
         <div className="all-cards">
           <div className="team-cards">
             <TeamMember picture={satvik} name="Satvik Tripathi" institution="University of Pennsylvania" />
-            <TeamMember picture={dania} name="Dania Daye" institution="Harvard Medical School" />
             <TeamMember picture={tessa} name="Tessa Cook" institution="University of Pennsylvania" />
+            <TeamMember picture={dania} name="Dania Daye" institution="Harvard Medical School" />
           </div>
 
           <div className="team-cards">

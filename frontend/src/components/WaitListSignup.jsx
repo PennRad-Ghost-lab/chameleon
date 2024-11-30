@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Modal, Spinner } from "react-bootstrap";
 
 const WaitlistSignup = () => {
     const [firstName, setFirstName] = useState("");
@@ -8,9 +8,11 @@ const WaitlistSignup = () => {
     const [institution, setInstitution] = useState("");
     const [responseMessage, setResponseMessage] = useState("");
     const [variant, setVariant] = useState("success");
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true); // Show loading modal
 
         try {
             const response = await fetch("https://backend-damp-mountain-3912.fly.dev/api/google-sheets", {
@@ -40,6 +42,8 @@ const WaitlistSignup = () => {
             console.error("Error:", error);
             setResponseMessage("Network error. Please try again.");
             setVariant("danger");
+        } finally {
+            setLoading(false); // Hide loading modal
         }
     };
 
@@ -99,12 +103,23 @@ const WaitlistSignup = () => {
                         required
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit" className="w-50 d-flex justify-content-center mx-auto text-centero">
+                <Button variant="primary" type="submit" className="w-50 d-flex justify-content-center mx-auto text-center">
                     Join Waitlist
                 </Button>
             </Form>
+
+            {/* Loading Modal */}
+            <Modal show={loading} centered backdrop="static" keyboard={false}>
+                <Modal.Body className="text-center">
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                    <p className="mt-3">Processing your request...</p>
+                </Modal.Body>
+            </Modal>
         </div>
-);
+    );
 };
 
 export default WaitlistSignup;
+
