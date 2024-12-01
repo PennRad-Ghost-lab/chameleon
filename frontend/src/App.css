@@ -4,6 +4,13 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5em;
 }
 
 #root {
