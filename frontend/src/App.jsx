@@ -147,10 +147,6 @@ const App = () => {
         <MyHeader />
       </section>
 
-        {/*<section id="about">*/}
-        {/*    <WaitlistSignup />*/}
-        {/*</section>*/}
-
       <section id="about" >
         <About handleShow={handleShow} />
       </section>

@@ -74,6 +74,9 @@ body {
   flex-direction: column;
   min-width: 350px;
   padding-right: 55px;
+  border: grey solid 1px;
+  border-radius: 20px;
+  padding: 30px;
 }
 
 .waitlist-form div {
@@ -101,6 +104,8 @@ body {
 
 #meet-team {
   width: 100%;
+  background-color: rgba(220, 220, 220);
+  padding: 30px;
   /* margin-left: 55px; */
 }
 
