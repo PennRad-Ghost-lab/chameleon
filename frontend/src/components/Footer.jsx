@@ -13,20 +13,20 @@ const Footer = () => {
         src={penn_medicine}
         alt="Penn Medicine"
         className='h-12 w-auto object-contain'
-        style={{ height: "51px" }}
+        style={{ height: "75px" }}
       />
 
       <img
         src={perelman}
         alt="Penn"
         className="h-12 w-auto object-contain"
-        style={{ height: "50px" }}
+        style={{ height: "72px" }}
       />
       <img
         src={harvard_med}
         alt="Mass General"
         className="h-12 w-auto object-contain"
-        style={{ height: "55px" }}
+        style={{ height: "80px" }}
       />
     </div>
   );
