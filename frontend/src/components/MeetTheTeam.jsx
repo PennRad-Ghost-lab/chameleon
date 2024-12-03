@@ -1,5 +1,5 @@
 import TeamMember from "./TeamMember";
-import satvik from "/satvik.png";
+import satvik from "/satvik.jpeg";
 import dania from "/dania.jpg";
 import tessa from "/tessa.jpg";
 import rithvik from "/rithvik.jpeg";
