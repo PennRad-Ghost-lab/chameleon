@@ -14,8 +14,18 @@ import { useState, useEffect } from 'react';
 import { set } from 'mongoose';
 import emailjs from '@emailjs/browser';
 import WaitlistSignup from "./components/WaitListSignup.jsx";
+import ReactGA from 'react-ga4';
+
+const GOOGLE_ANALYTICS_TRACKING_ID = "G-F24QNGB66Y";
 
 const App = () => {
+    useEffect(() => {
+        // Initialize Google Analytics
+        ReactGA.initialize(GOOGLE_ANALYTICS_TRACKING_ID);
+        // Log the first page load
+        ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+    }, []);
+
   // const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
   // const [selectedId, setSelectedId] = useState(null);

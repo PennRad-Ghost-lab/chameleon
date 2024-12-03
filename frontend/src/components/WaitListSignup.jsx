@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Alert, Modal, Spinner } from "react-bootstrap";
+import ReactGA from "react-ga4";
 
 const WaitlistSignup = () => {
     const [firstName, setFirstName] = useState("");
@@ -12,6 +13,11 @@ const WaitlistSignup = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        ReactGA.event({
+            category: 'Form',
+            action: 'Submit Waitlist Form',
+            label: 'Waitlist Form Submission',
+        });
         setLoading(true); // Show loading modal
 
         try {
